@@ -1,7 +1,9 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,12pt,oneside]{report}
 \usepackage{titlesec}
-\usepackage[usenames,dvipsnames]{color}
+\usepackage[svgnames]{xcolor}
+%\usepackage[usenames,dvipsnames]{color}
 \usepackage[top=1.5cm,bottom=1.5cm,left=1cm,right=1cm]{geometry}
+%\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -9,6 +11,9 @@
 \usepackage{wrapfig}
 \usepackage{hyperref}
 \usepackage[francais]{babel}
+%\usepackage{color}
+\usepackage{layout}
+
 \hypersetup{pdfborder={0 0 0}}
 
 \titleformat{\part}
@@ -19,7 +24,7 @@
 
 %Modifie le format des chapitres
 \titleformat{\chapter}
-{\it \color{Aquamarine} \fontfamily{pag}\fontsize{20.74}{20}\selectfont}
+{\it \color{DodgerBlue} \fontfamily{pag}\fontsize{20.74}{20}\selectfont}
 {\it \fontfamily{pag}\fontsize{20.74}{20}\selectfont Chapitre \ \thechapter \ - }
 {0pt}
 {}{}
@@ -35,7 +40,7 @@
 
 %Modifie le format des sous-secions
 \titleformat{\subsection}
-{\color{Dandelion}\fontfamily{pag}\fontsize{12}{12}\selectfont}
+{\color{DarkOrange}\fontfamily{pag}\fontsize{12}{12}\selectfont}
 {\fontfamily{pag}\fontsize{12}{12}\selectfont \thesubsection}
 {5pt}
 {}{}
@@ -49,27 +54,43 @@
 \newcommand{\titre}[3]
 {
 	\begin{document}
-	%\@ifmtarg{#4}{\color{#5}}{\TileWallPaper{21cm}{30cm}{#4.jpg}\color{#5}} % si le 4è arguments en non vide, insère une image et change la couleur à #5
 	\begin{titlepage}
-	\thispagestyle{empty}
-		\colorbox{blue}{\fontfamily{pag}\fontsize{20}{20}\selectfont{\centering{2014-2015}}}
-		\vspace*{5cm} % insère un espace de 2 cm avant le titre
-		\begin{center}\bfseries
-			\fontfamily{pag}\fontsize{35}{35}\selectfont{#1} % écrit le titre en taille 40 avec une police d'Avant Garde
+		\vspace*{-2cm}
+		\hspace*{-1.1cm}
+		\colorbox{LightBlue}{
+			\begin{minipage}{\paperwidth}{
+				\vspace*{0.6cm}\fontfamily{pag}\fontsize{20}{20}\selectfont{\begin{center}2014-2015\end{center}}\vspace*{0.3cm} }
+			\end{minipage}}
+		\hspace*{-1.1cm}
+		\vspace*{-0.1cm}
+		\includegraphics[width=1.1\paperwidth]{ELEC.jpeg}
+		\hspace*{-1.2cm}
+		\colorbox{LightGreen}{
+			\hspace*{1.2cm}
+			\begin{minipage}{\textwidth+1cm}{
+				\vspace*{1cm}
+				\begin{flushleft}\bfseries
+					\fontfamily{pag}\fontsize{35}{35}\selectfont{#1} % écrit le titre en taille 40 avec une police d'Avant Garde
+					\vspace*{0.5cm}
+				\end{flushleft}
+				\begin{flushleft}
+					\fontfamily{pag}\fontsize{30}{30}\selectfont{#2}
+				\end{flushleft}
+				\vspace*{1cm}
+				\hspace*{-1.2cm}
+			\begin{minipage}{\textwidth}{
+				\begin{flushright}
+					\fontfamily{pag}\fontsize{20}{20}\selectfont{#3} % écrit l'auteur sous le titre aligné à droite en taille 20
+				\end{flushright}}
 			\vspace*{2cm}
-		\end{center}
-		\begin{center}
-			\fontfamily{pag}\fontsize{30}{30}\selectfont{#2}
-			\vspace*{1cm}
-		\end{center}
-		\begin{flushright}
-			\fontfamily{pag}\fontsize{20}{20}\selectfont{#3} % écrit l'auteur sous le titre aligné à droite en taille 20
-		\end{flushright}
+			\end{minipage}
+}
+			\end{minipage}
+		}
 		\begin{center}
 			\vfill % repli le reste de la page
 			\fontfamily{pag}\fontsize{20}{20}\selectfont{\today} % écrit la date en bas et au centre de la page en taille 20
 		\end{center}
 	\end{titlepage} % fin de la page de titre
 	\color{black} % met la couleur du reste du texte à noir
-	\ClearWallPaper % supprime l'image d'arrière plan
 }
