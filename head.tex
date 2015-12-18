@@ -1,7 +1,9 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,12pt,oneside]{report}
 \usepackage{titlesec}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage[top=1.5cm,bottom=1.5cm,left=1cm,right=1cm]{geometry}
+\usepackage[svgnames]{xcolor}
+%\usepackage[usenames,dvipsnames]{color}
+\usepackage[top=0cm,bottom=0cm,left=0cm,right=0cm]{geometry}
+%\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -22,6 +24,8 @@
 \usepackage[squaren, Gray]{SIunits}
 \usepackage{sistyle}
 
+\usepackage{layout}
+
 \hypersetup{pdfborder={0 0 0}}
 
 \titleformat{\part}
@@ -32,7 +36,7 @@
 
 %Modifie le format des chapitres
 \titleformat{\chapter}
-{\it \color{Aquamarine} \fontfamily{pag}\fontsize{20.74}{20}\selectfont}
+{\it \color{DodgerBlue} \fontfamily{pag}\fontsize{20.74}{20}\selectfont}
 {\it \fontfamily{pag}\fontsize{20.74}{20}\selectfont Chapitre \ \thechapter \ - }
 {0pt}
 {}{}
@@ -48,7 +52,7 @@
 
 %Modifie le format des sous-secions
 \titleformat{\subsection}
-{\color{Dandelion}\fontfamily{pag}\fontsize{12}{12}\selectfont}
+{\color{DarkOrange}\fontfamily{pag}\fontsize{12}{12}\selectfont}
 {\fontfamily{pag}\fontsize{12}{12}\selectfont \thesubsection}
 {5pt}
 {}{}
@@ -58,6 +62,7 @@
 \setlength{\parindent}{0pt}
 \makeatletter
 
+<<<<<<< HEAD:head.tex
 \begin{document}
 % Commande créeant une page de titre avec un Titre, un auteur et une date et insère une image en arrière plan au format jpg
 \newcommand{\titre}[3]
@@ -71,17 +76,52 @@
 		\end{center}
 		\begin{center}
 			\fontfamily{pag}\fontsize{30}{30}\selectfont{#2}
+=======
+% Commande créeant une page de titre
+%	#1=Titre
+%	#2=Sous-titre
+%	#3=Auteur
+%	#4=image
+%	#5=couleur de fond
+%	#6=couleur cadre titre,sous-titre,auteur
+\newcommand{\titre}[6]
+{
+	\begin{document}
+	\begin{titlepage}
+		\pagecolor{#5} % met la couleur de la page
+		\vspace*{0.6cm}\fontfamily{pag}\fontsize{20}{20}\selectfont{\begin{center}2014-2015\end{center}}\vspace*{0.3cm}	% insère l'année en haut de la page
+		\vspace*{-0.1cm}
+		\includegraphics[width=\paperwidth]{#4} % insère l'image
+		\colorbox{#6}{	%boîte de couleur avec le titre, sous-titre et l'auteur
+			\hspace*{1.2cm}
+			\begin{minipage}{\textwidth-1.8cm}{
+				\vspace*{1cm}
+				\begin{flushleft}\bfseries
+					\fontfamily{pag}\fontsize{35}{35}\selectfont{#1}	%Titre
+					\vspace*{0.5cm}
+				\end{flushleft}
+				\begin{flushleft}
+					\fontfamily{pag}\fontsize{30}{30}\selectfont{#2}	%Sous-Titre
+				\end{flushleft}
+				\vspace*{1cm}
+				\begin{flushright}
+					\fontfamily{pag}\fontsize{20}{20}\selectfont{#3}	%Auteur
+				\end{flushright}}
+>>>>>>> 95813de728e747683d152421d00db4c32f897f56:Q4/head.tex
 			\vspace*{1cm}
-		\end{center}
-		\begin{flushright}
-			\fontfamily{pag}\fontsize{20}{20}\selectfont{#3} % écrit l'auteur sous le titre aligné à droite en taille 20
-		\end{flushright}
-		\begin{center}
-			\vfill % repli le reste de la page
-			\fontfamily{pag}\fontsize{20}{20}\selectfont{\today} % écrit la date en bas et au centre de la page en taille 20
-		\end{center}
+			\end{minipage}}
+			\begin{center}
+				\vfill % repli le reste de la page
+				\fontfamily{pag}\fontsize{20}{20}\selectfont{\today} 	%Date
+			\end{center}
 	\end{titlepage} % fin de la page de titre
 	\color{black} % met la couleur du reste du texte à noir
+<<<<<<< HEAD:head.tex
 	\ClearWallPaper % supprime l'image d'arrière plan
 	\tableofcontents
+=======
+	\pagecolor{white}	% met la couleur des pages suivante à blanc
+	\newgeometry{top=1.5cm,bottom=1.5cm,left=1cm,right=1cm}	% modification des marges
+	\tableofcontents	%tables des matières
+>>>>>>> 95813de728e747683d152421d00db4c32f897f56:Q4/head.tex
 }
