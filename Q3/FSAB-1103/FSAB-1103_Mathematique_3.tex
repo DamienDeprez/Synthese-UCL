@@ -1,0 +1,195 @@
+\input{../../head.tex}
+\titre{FSAB-1103 Mathématique 3}{Synthèse}{Damien Deprez}
+\chapter{Terminologie}
+Toute relation entre $u$, $x_j$ avec $j=1,...,m$ et des dérivées partielles de $u$ par rapport aux $x_j$ constitue une \emph{Équation aux Dérivées Partielles} (EDP).
+\begin {equation}
+F\left( u,x,...,\frac{\partial u}{\partial x_1},...,\frac{\partial ^2 u}{\partial x_{1}^{2}},\frac{\partial ^2 u}{\partial x_1 \partial x_2},...,\frac{\partial ^n u}{\partial x_{1}^{n}},... \right)
+\end{equation}
+Une EDP est dite d'ordre $n$ lorsque la dérivée partielle la plus élevée qu'elle contient est d'ordre n.\\
+Une EDP est dite \emph{linéaire} lorsqu'elle est linéaire par rapport à $u$ et toutes ses dérivées partielles. Elle est dite \emph{quasi-linéaire} lorsqu'elle est linéaire par rapport aux dérivées partielles d'ordre le plus élevé en chacune des variables.\\
+Une EDP est dite \emph{homogène} lorsqu'elle ne contient que des termes faisant intervenir $u$ et ses dérivées partielles.
+\chapter{EDP du premier ordre}
+Une EDP du premier ordre quazi-linéaire s'écrit de la façon la plus générale
+\begin{equation}
+P\frac{\partial u}{\partial x} + Q \frac{\partial u}{\partial y} = R
+\label{eq:def-EDP-1er-ordre}
+\end{equation}
+où $P$, $Q$, et $R$ sont au plus fonction de $x$, $y$ et $u$. $R$ peut toujours être décomposé sous la forme $R=F(x,y) + G(x,y,u)$.	 L'EDP est dite homogène lorsque $F=0$. Le cas où $R=0$ est donc aussi homogène. 
+Une EDP du premier ordre linéaire s'écrit de la façon la plus générale
+\begin{equation}
+P\frac{\partial u}{\partial x} + Q \frac{\partial u}{\partial y} + Gu = F
+\end{equation}
+où $P$, $Q$, $G$ et $F$ sont au plus fonction de $x$ et $y$. Si $F=0$, alors l'EDP est dite homogène. La forme explicite de la solution est : $u=u(x,y)$ et la forme implicite est une relation du type $\mathcal{F}(x,y,u)=0$. Dans tous les cas, la représentation géométrique de cette solution est une surface dans l'espace (x,y,u) appelée la \emph{la surface intégrale de l'EDP}.
+\section{Problème de Cauchy et méthode des caractéristiques}
+Soit $u$ donné le long de la courbe paramétrisée $\Gamma \equiv (x(s),y(s))$ avec $s$ le paramètre qui décrit la courbe. Dès lors, $u(s)=u(x(s),y(s))$ est une fonction donnée. Comme $u(s)$ est connu le long de $\Gamma$, alors $\frac{d u}{ds}$ est aussi connu le long de $\Gamma$ et l'on peut écrire
+\begin{equation}
+\frac{\partial u}{\partial x}\frac{d x}{d s} + \frac{\partial u}{\partial y}\frac{d y}{d s} = \frac{d u}{d s}
+\end{equation}
+Avec l'EDP elle même, on peut arriver au système 
+\begin{equation}
+\begin{pmatrix}
+P & Q \\
+\frac{dx}{ds} & \frac{dy}{ds}
+\end{pmatrix}
+%
+\begin{pmatrix}
+\frac{\partial u}{\partial x} \\
+\frac{\partial u}{\partial y} 
+\end{pmatrix}
+=
+\begin{pmatrix}
+R \\
+\frac{du}{ds}
+\end{pmatrix}
+\label{eq:sys-EDP-1er-ordre}
+\end{equation}
+Si le déterminant ne s'annule pas, alors il est possible de résoudre ce système et d'obtenir $\frac{\partial u}{\partial x}$ et $\frac{\partial u}{\partial y}$ le long de $\Gamma$. Cela nous permet de construire $u$ dans le voisinage de la courbe $\Gamma$. Pour toute direction locale $(dx,dy)$ hors de la courbe et au voisinage d'un point $(x(s),y(s))$ de la courbe, nous avons :
+\begin{equation}
+u(x+dx,y+dy)=u(x,y)+dx\frac{\partial u}{\partial x}(x,y) + dy \frac{\partial u}{\partial y}(x,y)
+\end{equation}
+Il ne reste plus qu'a répéter ces opérations pour petit à petit se propager et obtenir la solution de plus en plus loin de la courbe $\Gamma$. Pour que cette méthode fonctionne, il faut absolument que le déterminant ne s'annule en aucun point. Dans le cas où le déterminant ne s'annule en aucun des points de la courbe $\Gamma$, nous dirons que le problème de Cauchy est \emph{bien posé}. Graphiquement, cela veut dire qu'en tout point, la courbe $\Gamma$ et la direction caractéristique ne peuvent pas être parallèle. De plus, chaque caractéristique ne peut intersecter qu'une seule fois. 
+Puisque le problème est bien posé, en repartant de l'équation \ref{eq:sys-EDP-1er-ordre}, il est possible de trouver une direction locale particulière $(dx,dy)$ tel que le déterminant 
+\begin{equation}
+\begin{vmatrix}
+P & Q \\
+dx & dy
+\end{vmatrix}
+=0
+\end{equation}
+Cette direction est est donc telle que $dx$ et $dy$ sont liés par la relation
+\begin{equation}
+P dy = Q dx
+\label{eq:relation-direction-cara-1er-ordre}
+\end{equation}
+Cette direction est appelée \emph{la direction caractéristique}. Sa pente locale est $\frac{dy}{dx}=\frac{Q}{P}$ ou $\frac{dx}{dy}=\frac{P}{Q}$. Considérons que $P$ est non-null et $Q$ est général (nul ou non-nul).\\
+Le système est encore "soluble" le long de cette direction caractéristique si le déterminant formé en remplaçant une des colonnes de la matrice par le membre de droite s'annule également.
+\begin{equation}
+\begin{vmatrix}
+P & R \\
+dx & du
+\end{vmatrix}
+=
+\begin{vmatrix}
+R & Q \\
+du & dy
+\end{vmatrix}
+= 0
+\end{equation} 
+Cela donne comme résultat : 
+\begin{equation}
+\left\{
+\begin{array}{r c l}
+P du &=&R dx \\
+Q du &=&R dy
+\end{array}
+\right.
+\end{equation}
+Grâce à la méthode des caractéristiques, il est possible de transformée une EDP en une simple EDO.\\
+\section{Équation de transport}
+L'équation de transport aussi appelée \emph{équation de convection} s'écrit de manière générale sous la forme 
+\begin{equation}
+c\frac{\partial u}{\partial x} + \frac{\partial u}{\partial t} = 0
+\end{equation}
+où $c$ a les dimensions d'une vitesse. En reprenant l'équation \ref{eq:def-EDP-1er-ordre}, nous avons $P=c$, $Q=1$ et $R=0$. Vu que $R=0$, cette EDP conserve $u$ le long de chaque caractéristique. La direction caractéristique est données en résolvant l'EDO : $ dx = c dt$. 
+La courbe $\Gamma$ est définie comme étant $x(s)=s$ et $t(s)=0$. Dans le cas où $c$ est une constante, le réseau des caractéristiques sont des droites parallèles. La solution de cette EDP est tout simplement : $$ u(x,t) = f(s) = f(x-ct)$$
+Dans sa forme conservative, l'équation de transport s'écrit comme
+\begin{equation}
+\frac{\partial}{\partial x}(cu) + \frac{\partial u}{\partial t} = 0
+\label{eq:transport-conservatif}
+\end{equation}
+Avec ce type d'équation, on remarque que son intégrale (la quantité globale) est conservée au cours du temps mais $u$ par contre n'est pas conservé le long des caractéristiques. En développant l'équation \ref{eq:transport-conservatif}, on obtient 
+\begin{equation}
+c\frac{\partial u}{\partial x} + \frac{\partial u}{\partial t	} = -\frac{\partial c}{\partial x}u
+\end{equation}
+Le long des caractéristiques, la variation de $u$ est régie par $du = -u\frac{\partial c}{\partial x}dt $ Pour une variation de $u$ le long de chaque caractéristique, on obtient 
+$$ \frac{du}{u}=-\frac{dc}{dx}\frac{dx}{c} = -\frac{dc}{c}\leftrightarrow d(cu)=0 $$
+C'est donc $cu$ qui est conservé le long de chaque caractéristique. Dès lors, on peut exprimer $u(x,t)$ comme
+\begin{equation}
+u(x,t)=u(s,0)\frac{c(s)}{c(x)}=\frac{c(s)}{c(x)}f(s)
+\end{equation}
+
+\chapter{EDP du Deuxième Ordre}
+L'EDP du deuxième ordre quazi-linéaire s'écrit de la façon la plus générale
+\begin{equation}
+A \frac{\partial ^2 \phi}{\partial x^2} + B \frac{\partial ^2 \phi}{\partial x \partial y} + C \frac{\partial ^2 \phi}{\partial y^2} =R
+\end{equation}
+où $A$, $B$, $C$ et $R$ sont au plus fonction de $x$, $y$, $\phi$, $\frac{\partial \phi}{\partial x}$ et $\frac{\partial \phi}{\partial y}$. $R$ est toujours décomposable sous la forme $R = F + G$, avec $F$, fonction au plus de $x$ et $y$. L'EDP est dite homogène si $F=0$.
+
+L'EDP linéaire du deuxième ordre s'écrit de manière plus générale sous la forme
+\begin{equation}
+A \frac{\partial ^2 \phi}{\partial x^2} + B \frac{\partial ^2 \phi}{\partial x \partial y} + C \frac{\partial ^2 \phi}{\partial y^2} + P \frac{\partial \phi}{\partial x} + Q \frac{\partial \phi}{\partial y} + G \phi = F
+\end{equation}
+où $A$, $B$, $C$, $P$, $Q$, $G$ et $F$ sont au plus fonction de $x$ et $y$. L'EDP est homogène lorsque $F=0$.
+\section{Problème de Cauchy et méthode des caractéristiques}
+Soit $\phi(s)$ et $\frac{\partial \phi}{\partial n} (s)$ donné le long de la courbe paramétrisée $\Gamma \equiv (x(s),y(s))$ avec $n(s)$ la direction normale à la courbe. Comme $\phi(s)$ est connu, $\frac{\partial  \phi}{\partial s}(s)$ l'est aussi. Dès lors, $\phi(s)$ et $\Delta\phi(s) = \left(\frac{\partial \phi}{\partial x} (s), \frac{\partial \phi}{\partial y}(s)\right)$ sont connu le long de $\Gamma$. Cela permet de connaître $\frac{d}{ds}\left(\frac{\partial \phi}{\partial x}\right)$ et $\frac{d}{ds}\left(\frac{\partial \phi}{\partial y}\right)$. On peut donc écrire le système suivant
+\begin{eqnarray}
+\frac{\partial}{\partial x}\left(\frac{\partial \phi}{\partial x}\right)\frac{dx}{ds} +\frac{\partial}{\partial y}\left(\frac{\partial \phi}{\partial x}\right)\frac{dy}{ds} & = & \frac{d}{ds}\left(\frac{\partial \phi}{\partial x}\right)\\
+\frac{\partial}{\partial x}\left(\frac{\partial \phi}{\partial y}\right)\frac{dx}{ds} +\frac{\partial}{\partial y}\left(\frac{\partial \phi}{\partial y}\right)\frac{dy}{ds} & = & \frac{d}{ds}\left(\frac{\partial \phi}{\partial y}\right)
+\end{eqnarray}
+Comme $\frac{\partial ^2 \phi}{\partial x \partial y}=\frac{\partial ^2 \phi}{\partial y \partial x}$, il en résulte le système suivant
+\begin{equation}
+\begin{pmatrix}
+A & B & C\\
+\frac{dx}{ds} & \frac{dy}{ds} & 0 \\
+0 & \frac{dx}{ds} & \frac{dy}{ds}
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial ^2 \phi}{\partial x^2}\\
+\frac{\partial ^2 \phi}{\partial x \partial y}\\
+\frac{\partial ^2 \phi}{\partial y^2}
+\end{pmatrix}
+=
+\begin{pmatrix}
+R \\
+\frac{d}{ds}\left(\frac{\partial \phi}{\partial x}\right) \\
+\frac{d}{ds}\left(\frac{\partial \phi}{\partial y}\right)
+\end{pmatrix}
+\end{equation}
+Tant que le déterminant ne s'annule pas, le système est soluble et on peut trouver $\frac{\partial ^2 \phi}{\partial x^2}$, $\frac{\partial ^2 \phi}{\partial x \partial y}$ et $\frac{\partial ^2 \phi}{\partial y^2}$ le long de $\Gamma$. Cela permet d'obtenir $\phi$, $\frac{\partial \phi}{\partial x} $ et $\frac{\partial \phi}{\partial y}$ dans le voisinage de la courbe $\Gamma$. Le problème est dit bien posé uniquement lorsque le déterminant ne s'annule pas.
+
+En prenant des directions non parallèles à $\Gamma$ et considérant les variations $\frac{\partial \phi}{\partial x}$ et $\frac{\partial \phi}{\partial y}$, on obtient le système 
+\begin{eqnarray}
+\frac{\partial}{\partial x}\left(\frac{\partial \phi}{\partial x}\right)dx +\frac{\partial}{\partial y}\left(\frac{\partial \phi}{\partial x}\right)dy & = & d\left(\frac{\partial \phi}{\partial x}\right)\\
+\frac{\partial}{\partial x}\left(\frac{\partial \phi}{\partial y}\right)dx +\frac{\partial}{\partial y}\left(\frac{\partial \phi}{\partial y}\right)dy & = & d\left(\frac{\partial \phi}{\partial y}\right)
+\end{eqnarray}
+ce qui mis avec l'EDP elle même nous donne le système suivant
+\begin{equation}
+\begin{pmatrix}
+A & B & C\\
+dx & dy & 0 \\
+0 & dx & dy
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial ^2 \phi}{\partial x^2}\\
+\frac{\partial ^2 \phi}{\partial x \partial y}\\
+\frac{\partial ^2 \phi}{\partial y^2}
+\end{pmatrix}
+=
+\begin{pmatrix}
+R \\
+d\left(\frac{\partial \phi}{\partial x}\right) \\
+d\left(\frac{\partial \phi}{\partial y}\right)
+\end{pmatrix}
+\end{equation}
+Cela nous permet de trouver en tout point de $\Gamma$, deux directions particulière $(dx, dy)$ telles que le déterminant 
+\begin{equation}
+\begin{vmatrix}
+A & B & C \\
+dx & dy & 0 \\
+0 & dx & dy
+\end{vmatrix}
+=0
+\end{equation}
+Ces directions caractéristiques sont donc obtenues comme les racines de 
+\begin{equation}
+A dy^2 - B dy dx + C dx^2 = 0 \Leftrightarrow A \left(\frac{dy}{dx}\right)^2-B\frac{dy}{dx}+C = 0
+\label{eq:EDP-2em-ordre-cara}
+\end{equation}
+À partir de ce moment, on considère trois cas d'EDP
+\begin{itemize}
+\item \emph{hyperbolique} : L'EDP est dite hyperbolique lorsque l'équation \ref{eq:EDP-2em-ordre-cara} a deux racines distinctes.
+\item \emph{parabolique} : L'EDP et dite parabolique lorsque l'équation \ref{eq:EDP-2em-ordre-cara} a une racine double.
+\item \emph{elliptique} : L'EDP est dite elliptique lorsque l'équation \ref{eq:EDP-2em-ordre-cara} n'as pas de racine réelles.
+
+\end{itemize}
+\input{../../tail.tex}

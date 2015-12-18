@@ -1,0 +1,25 @@
+\begin{circuitikz} [european resistors]
+\draw
+(0,0) node [op amp] (opamp) {}
+(opamp.+) node [left] {$v_+$}
+(opamp.-) node [left] {$v_-$}
+(opamp.out) node [right] {$v_{\text{out}}$};
+
+\draw [dashed] (5,-1.5) rectangle (9,1.5);
+\draw (4.5,0.5)--(5,0.5)
+(4.5,-0.5)--(5,-0.5)
+(4.5,-0.5) node [left] {$v_-$}
+(4.5, 0.5) node [left] {$v_+$}
+(5.2,-0.5) node [right] {$-$}
+(5.2,0.5) node [right] {$+$};
+\draw [>=latex,->, thick] (5.2,-0.5) -- (5.2,0.5);
+\draw (5.3,0) node [right] {$v_\varepsilon$};
+
+\draw
+(8,-0.5) to [american voltage source, l=$g_fv_\varepsilon$](8,0.5)
+(8,-0.5) node [ground] {}
+(8,0.5) -- (8,1) -- (10,1)
+(10,1) node [right] {$v_{\text{out}}$};
+
+
+\end{circuitikz}

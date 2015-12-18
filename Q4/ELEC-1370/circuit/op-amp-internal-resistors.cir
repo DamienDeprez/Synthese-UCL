@@ -1,0 +1,16 @@
+\begin{circuitikz}
+	\draw
+	(0,2) to [open, v=$v_\text{in}$] (0,0)
+	(0,2) to [R, l=$R_\text{in}$] (2,2)
+	(2,2)--(2,0)--(0,0)
+	(0,0) node [ocirc] {}
+	(0,2) node [ocirc] {};
+	\draw
+	(4,0)to [american voltage source, l_=$g_fv_\text{in}$] (4,2)
+	(4,2) to [R, l=$R_\text{out}$] (6,2)
+	(4,0) node [ground] {}
+	(4,0) to [short, -o] (6,0)
+	(6,2) node [ocirc] {}
+	(6,2) to [open, v^=$v_\text{out}$] (6,0);
+	
+\end{circuitikz}

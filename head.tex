@@ -5,10 +5,23 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{wallpaper}
 \usepackage{wrapfig}
 \usepackage{hyperref}
-\usepackage[francais]{babel}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{multirow}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{circuitikz}
+
+
+%unité
+\usepackage[squaren, Gray]{SIunits}
+\usepackage{sistyle}
+
 \hypersetup{pdfborder={0 0 0}}
 
 \titleformat{\part}
@@ -45,14 +58,12 @@
 \setlength{\parindent}{0pt}
 \makeatletter
 
+\begin{document}
 % Commande créeant une page de titre avec un Titre, un auteur et une date et insère une image en arrière plan au format jpg
 \newcommand{\titre}[3]
 {
-	\begin{document}
 	%\@ifmtarg{#4}{\color{#5}}{\TileWallPaper{21cm}{30cm}{#4.jpg}\color{#5}} % si le 4è arguments en non vide, insère une image et change la couleur à #5
 	\begin{titlepage}
-	\thispagestyle{empty}
-		\colorbox{blue}{\fontfamily{pag}\fontsize{20}{20}\selectfont{\centering{2014-2015}}}
 		\vspace*{5cm} % insère un espace de 2 cm avant le titre
 		\begin{center}\bfseries
 			\fontfamily{pag}\fontsize{35}{35}\selectfont{#1} % écrit le titre en taille 40 avec une police d'Avant Garde
@@ -72,4 +83,5 @@
 	\end{titlepage} % fin de la page de titre
 	\color{black} % met la couleur du reste du texte à noir
 	\ClearWallPaper % supprime l'image d'arrière plan
+	\tableofcontents
 }

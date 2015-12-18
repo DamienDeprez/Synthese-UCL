@@ -1,0 +1,90 @@
+\begin{circuitikz} [european resistors]
+%Z
+\fill [color=cyan, opacity=0.25] (1,0) rectangle (8,4);
+\draw
+(1,0.5) to [short, *-] (4,0.5)
+(1,2.5) to [R, l=$Z_i$, *-] (4,2.5)
+(4,0.5) to [american voltage source, l=$z_ri_o$] (4,2.5)
+(1,0.5) to [open, v^>=$v_i$] (1,2.5)
+
+(8,0.5) to [short, *-] (5,0.5)
+(8,2.5) to [R, l_=$Z_o$, *-] (5,2.5)
+(5,0.5) to [american voltage source, l_=$z_fi_i$,] (5,2.5)
+(8,0.5) to [open, v>=$v_o$] (8,2.5)
+
+(1,4) node [below right, color=red] {\textbf{Z}};
+
+\draw [>=latex,->, thick] (0,2.5) -- (0.75,2.5);
+\draw (0.25,2.5) node [above] {$i_i$};
+
+\draw [>=latex,->, thick] (9,2.5) -- (8.25,2.5);
+\draw (8.75,2.5) node [above] {$i_o$};
+
+%Y
+\fill [color=cyan, opacity=0.25] (1,5) rectangle (8,9);
+\draw
+(1,5.5) to [short, *-] (4,5.5)
+(1,7.5) to [short, *-] (4,7.5)
+(4,7.5) to [american current source, l_=$y_rv_o$] (4,5.5)
+(2,5.5) to [R, l^=$y_i$] (2,7.5)
+(1,5.5) to [open, v^>=$v_i$] (1,7.5)
+
+(8,5.5) to [short, *-] (5,5.5)
+(8,7.5) to [short, *-] (5,7.5)
+(5,7.5) to [american current source, l^=$y_fv_i$] (5,5.5)
+(7,5.5) to [R, l_=$y_o$] (7,7.5)
+(8,5.5) to [open, v_>=$v_i$] (8,7.5)
+
+(1,9) node [below right, color=red] {\textbf{Y}};
+
+\draw [>=latex,->, thick] (0,7.5) -- (0.75,7.5);
+\draw (0.25,7.5) node [above] {$i_i$};
+
+\draw [>=latex,->, thick] (9,7.5) -- (8.25,7.5);
+\draw (8.75,7.5) node [above] {$i_o$};
+
+%H
+\fill [color=cyan, opacity=0.25] (11,0) rectangle (18,4);
+\draw
+(11,0.5) to [short, *-] (14,0.5)
+(11,2.5) to [R, l=$h_i$, *-] (14,2.5)
+(14,0.5) to [american voltage source, l=$h_rv_o$] (14,2.5)
+(11,0.5) to [open, v^>=$v_i$] (11,2.5)
+
+(18,0.5) to [short, *-] (15,0.5)
+(18,2.5) to [short, *-] (15,2.5)
+(15,2.5) to [american current source, l^=$h_fi_i$] (15,0.5)
+(17,0.5) to [R, l_=$h_o$] (17,2.5)
+(18,0.5) to [open, v_>=$v_i$] (18,2.5)
+
+(11,4) node [below right, color=red] {\textbf{H}};
+
+\draw [>=latex,->, thick] (10,2.5) -- (10.75,2.5);
+\draw (10.25,2.5) node [above] {$i_i$};
+
+\draw [>=latex,->, thick] (19,2.5) -- (18.25,2.5);
+\draw (18.75,2.5) node [above] {$i_o$};
+
+%G
+\fill [color=cyan, opacity=0.25] (11,5) rectangle (18,9);
+\draw
+(11,5.5) to [short, *-] (14,5.5)
+(11,7.5) to [short, *-] (14,7.5)
+(14,7.5) to [american current source, l_=$g_ri_o$] (14,5.5)
+(12,5.5) to [R, l^=$g_i$] (12,7.5)
+(11,5.5) to [open, v^>=$v_i$] (11,7.5)
+
+(18,5.5) to [short, *-] (15,5.5)
+(18,7.5) to [R, l_=$g_o$, *-] (15,7.5)
+(15,5.5) to [american voltage source, l_=$g_fv_i$,] (15,7.5)
+(18,5.5) to [open, v>=$v_o$] (18,7.5)
+
+(11,9) node [below right, color=red] {\textbf{G}};
+
+\draw [>=latex,->, thick] (10,7.5) -- (10.75,7.5);
+\draw (10.25,7.5) node [above] {$i_i$};
+
+\draw [>=latex,->, thick] (19,7.5) -- (18.25,7.5);
+\draw (18.75,7.5) node [above] {$i_o$};
+
+\end{circuitikz}
