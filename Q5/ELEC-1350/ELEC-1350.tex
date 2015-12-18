@@ -1,0 +1,31 @@
+\input{../../head.tex}
+ \titre{ELEC - 1350\\Électromagnétisme}{Synthèse}{Damien Deprez}{PageDeGardeF}{LightBlue}{LightGreen}
+ \chapter{Force et champ électrostatique}
+ \section{Loi de Coulomb}
+ \textbf{Force entre deux charges} $$\vec{F} = \frac{Q_1Q_2}{4\pi\epsilon_0R_{12}^2} \vec{a}_{12}$$
+ avec
+ \begin{itemize}
+  \item $R_{12} \unit{}{\left[\meter \right]}$ la distance entre les deux charges
+  \item $\epsilon_0 = 1/36\pi 10^{-9} \unit{}{\left[ \farad/\meter\right]}$
+  \item $\vec{a}_{12}$ vecteur direction de $1$ à $2$.
+ \end{itemize}
+ \textbf{Champ} $$\vec{E} = \frac{\vec{F}_t}{Q_t}$$
+ 
+ \textbf{Sens du champ électrique}
+ \begin{center}
+  \includegraphics[width=0.7\textwidth]{SensChampE}
+ \end{center}
+ Le champ électrique est \emph{vectoriel} et \emph{radial} par rapport à la charge ponctuelle qui le crée. Le principe de superposition s'applique au champ électrique.\\
+ \textbf{Type de charge}
+ \begin{itemize}
+  \item charge ponctuelle
+  \item charge linéique $\rho_l$
+  \item charge surfacique $\rho_s$
+  \item charge volumique $\rho_v$
+ \end{itemize}
+ \textbf{Champ dû à une distribution de charge dans le vide}
+ $$\vec{E}(r)= \int_{vol}{\frac{\rho_v(\vec{r'})dv}{4\pi\epsilon_0 |\vec{r} - \vec{r'}|^2}\frac{\vec{r}-\vec{r'}}{|\vec{r}-\vec{r'}|}}$$
+ où $\rho_v(\vec{r'})dv$ est la charge contenue dans le volume.\\
+ \textbf{Champ de déplacement d'une charge ponctuelle}
+ $$\vec{D} = \frac{Q}{4\pi r^2}\vec{a}_{r} = \epsilon_0 \vec{E}$$
+\input{../../tail.tex}

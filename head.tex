@@ -7,24 +7,23 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{wallpaper}
 \usepackage{wrapfig}
 \usepackage{hyperref}
-\usepackage[french]{babel}
-\usepackage{amsmath}
-\usepackage{multirow}
-
-\usepackage{tikz}
-\usepackage{pgfplots}
+\usepackage[francais]{babel}
+%\usepackage{color}
+\usepackage{layout}
 \usepackage{circuitikz}
-
-
-%unité
 \usepackage[squaren, Gray]{SIunits}
 \usepackage{sistyle}
+\usepackage[autolanguage]{numprint}
 
-\usepackage{layout}
+%Algo package
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algpseudocode}
+
+\usepackage{array}
+\usepackage{calc}
 
 \hypersetup{pdfborder={0 0 0}}
 
@@ -62,21 +61,8 @@
 \setlength{\parindent}{0pt}
 \makeatletter
 
-<<<<<<< HEAD:head.tex
-\begin{document}
-% Commande créeant une page de titre avec un Titre, un auteur et une date et insère une image en arrière plan au format jpg
-\newcommand{\titre}[3]
-{
-	%\@ifmtarg{#4}{\color{#5}}{\TileWallPaper{21cm}{30cm}{#4.jpg}\color{#5}} % si le 4è arguments en non vide, insère une image et change la couleur à #5
-	\begin{titlepage}
-		\vspace*{5cm} % insère un espace de 2 cm avant le titre
-		\begin{center}\bfseries
-			\fontfamily{pag}\fontsize{35}{35}\selectfont{#1} % écrit le titre en taille 40 avec une police d'Avant Garde
-			\vspace*{2cm}
-		\end{center}
-		\begin{center}
-			\fontfamily{pag}\fontsize{30}{30}\selectfont{#2}
-=======
+\newcommand{\bigO}{$\mathcal{O}$}
+
 % Commande créeant une page de titre
 %	#1=Titre
 %	#2=Sous-titre
@@ -89,7 +75,7 @@
 	\begin{document}
 	\begin{titlepage}
 		\pagecolor{#5} % met la couleur de la page
-		\vspace*{0.6cm}\fontfamily{pag}\fontsize{20}{20}\selectfont{\begin{center}2014-2015\end{center}}\vspace*{0.3cm}	% insère l'année en haut de la page
+		\vspace*{0.6cm}\fontfamily{pag}\fontsize{20}{20}\selectfont{\begin{center}2015-2016\end{center}}\vspace*{0.3cm}	% insère l'année en haut de la page
 		\vspace*{-0.1cm}
 		\includegraphics[width=\paperwidth]{#4} % insère l'image
 		\colorbox{#6}{	%boîte de couleur avec le titre, sous-titre et l'auteur
@@ -107,7 +93,6 @@
 				\begin{flushright}
 					\fontfamily{pag}\fontsize{20}{20}\selectfont{#3}	%Auteur
 				\end{flushright}}
->>>>>>> 95813de728e747683d152421d00db4c32f897f56:Q4/head.tex
 			\vspace*{1cm}
 			\end{minipage}}
 			\begin{center}
@@ -116,12 +101,7 @@
 			\end{center}
 	\end{titlepage} % fin de la page de titre
 	\color{black} % met la couleur du reste du texte à noir
-<<<<<<< HEAD:head.tex
-	\ClearWallPaper % supprime l'image d'arrière plan
-	\tableofcontents
-=======
 	\pagecolor{white}	% met la couleur des pages suivante à blanc
 	\newgeometry{top=1.5cm,bottom=1.5cm,left=1cm,right=1cm}	% modification des marges
 	\tableofcontents	%tables des matières
->>>>>>> 95813de728e747683d152421d00db4c32f897f56:Q4/head.tex
 }
